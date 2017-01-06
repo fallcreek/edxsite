@@ -6,15 +6,11 @@
 </head>
 <body>
 
-{% if problem_list %}
-    <ul>
-    {% for problem in problem_list %}
-        <li><a href="/performance/{{ problem.week }}/results">{{ problem.week }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No problems are available.</p>
-{% endif %}
+<ul>
+    <li><a href="/performance/week_performance/">week performance</a></li>
+    <li><a href="/performance/student_performance/">student performance</a></li>
+</ul>
+
 
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if item_list %}
+    <ul>
+    {% for item in item_list %}
+        <li>problem id : {{ item.set_id }}</li>
+        <li>part id : {{ item.part_id }}</li>
+        <li>user id : {{ item.user_id }}</li>
+        <li>attempt : {{ item.attempt }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No problems are available.</p>
+{% endif %}
+
+</body>
+</html>

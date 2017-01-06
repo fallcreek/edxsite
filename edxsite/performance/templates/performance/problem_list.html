@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html  lang="en" ng-app="blogposts">
+<head>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular.min.js"></script>
+
+    <!--<script type="text/javascript" src="/Users/lizhengyao/GitHub/edxsite/edxsite/performance/angular-1.6.1/angular.min.js"></script>-->
+
+    <script type="text/javascript">
+        var blogposts = angular.module('blogposts',[]);
+        blogposts.config(function($interpolateProvider) {
+            $interpolateProvider.startSymbol('//');
+            $interpolateProvider.endSymbol('//');
+        });
+        blogposts.controller('blogController', function($scope, $http) {
+         $http.get('/api/v1/url/?limit=600&format=json').success(function(data) {
+             $scope.posts = data["objects"];
+        });
+     });
+    </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="blogController">
+ <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello //yourName//!</h1>
+    </div>
+
+
+{% if problem_list %}
+    <ul>
+    {% for problem in problem_list %}
+        <li>{{ problem }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No problems are available.</p>
+{% endif %}
+
+
+</body>
+</html>
